@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:spacex_rockets/providers/rocket_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../providers/rocket_provider.dart';
+
 
 class RocketDetailsScreen extends ConsumerWidget {
   final String rocketId;
@@ -41,6 +42,13 @@ class RocketDetailsScreen extends ConsumerWidget {
                   style: const TextStyle(fontSize: 16)),
               Text('Success Rate: ${rocket.successRatePct ?? 0}%',
                   style: const TextStyle(fontSize: 16)),
+              Text(
+                  'Height: ${rocket.height?.feet ?? 0}ft / ${rocket.height?.meters ?? 0}m',
+                  style: const TextStyle(fontSize: 16)),
+              Text(
+                  'Diameter: ${rocket.diameter?.feet ?? 0}ft / ${rocket.height?.meters ?? 0}m',
+                  style: const TextStyle(fontSize: 16)),
+
               const SizedBox(height: 10),
               Text(rocket.description ?? 'No description available',
                   style: const TextStyle(fontSize: 14)),

@@ -18,6 +18,7 @@ class HomeScreen extends ConsumerWidget {
       ),
       body: rocketsAsync.when(
         data: (rockets) => ListView.builder(
+          shrinkWrap: true,
           padding: const EdgeInsets.all(10),
           itemCount: rockets.length,
           itemBuilder: (context, index) {
@@ -28,7 +29,7 @@ class HomeScreen extends ConsumerWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => RocketDetailsScreen(rocketId: rocket.id??'unknown id'),
+                    builder: (_) => RocketDetailsScreen(rocketId: rocket.id??'unknown_id'),
                   ),
                 );
               },
